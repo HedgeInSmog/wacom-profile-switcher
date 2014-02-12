@@ -12,7 +12,7 @@ do
    then
    	  window_in_focus_old=$window_in_focus
   	  #reading program's name from file "programs"
-      list_of_progr=$(<$HOME/xsetwacom/programs)	
+      list_of_progr=$(<$HOME/wacom-profile-switcher/programs)	
 	  # program's names cycle
 	  for name_of_progr in $list_of_progr
 	  do
@@ -24,7 +24,7 @@ do
 	  	do
 	  		if [[ "$running_progr" -eq "$window_in_focus" ]] 
 	  		 then
-	  			$HOME/xsetwacom/$name_of_progr
+	  			$HOME/wacom-profile-switcher/$name_of_progr
 	  			
 	  		fi
 	  	done
