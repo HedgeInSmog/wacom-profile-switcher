@@ -10,26 +10,36 @@ do
   #if the focus didn't change - do nothing
   if [[ "$window_in_focus" -ne "$window_in_focus_old" ]]
    then
-   	  window_in_focus_old=$window_in_focus
-  	  #reading program's name from file "programs"
-      list_of_progr=$(<$HOME/wacom-profile-switcher/programs)	
-	  # program's names cycle
-	  for name_of_progr in $list_of_progr
-	  do
-	  	awk_string_result="$awk_string1$name_of_progr$awk_string2"
+    window_in_focus_old=$window_in_focus
+    #reading program's name from file "programs"
+    list_of_progr=$(<$HOME/local/wacom-profile-switcher/programs)	
+	# program's names cycle
+IFS=$'\n'
+	found=0
+	for name_of_progr in $list_of_progr
+	do
+#  echo "$name_of_progr"
+		awk_string_result="$awk_string1$name_of_progr$awk_string2"
 		# getting the list of windows, wich titles has keyword from list of programs
-	  	list_of_running_prog=`wmctrl -l | awk "${awk_string_result}"`
-	  	# if in focus - then will execute script in the xsetwacom directory
-	  	for running_progr in $list_of_running_prog 
-	  	do
-	  		if [[ "$running_progr" -eq "$window_in_focus" ]] 
-	  		 then
-	  			$HOME/wacom-profile-switcher/$name_of_progr
-	  			
-	  		fi
-	  	done
-	  done
-  fi  
+		list_of_running_prog=`wmctrl -l | awk "${awk_string_result}"`
+		# if in focus - then will execute script in the xsetwacom directory
+		for running_progr in $list_of_running_prog 
+		do
+#    echo "$running_progr" "$window_in_focus"
+			if [[ "$running_progr" -eq "$window_in_focus" ]] 
+			 then
+				$HOME/local/wacom-profile-switcher/"$name_of_progr"
+				found=1
+				default=0
+			fi
+		done
+	done
+	if [ "$found" = "0" ] && [ "$default" = "0" ]
+	 then
+	    $HOME/local/wacom-profile-switcher/Default
+	    default=1
+	fi
+  fi
 
 sleep 1
 done
