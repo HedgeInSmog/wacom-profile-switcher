@@ -14,7 +14,8 @@
 DEVICE_STYLUS=`xsetwacom list dev | grep -E -o ".*stylus"`
 DEVICE_ERASER=`xsetwacom list dev | grep -E -o ".*eraser"`
 DEVICE_CURSOR=`xsetwacom list dev | grep -E -o ".*cursor"`
-DEVICE_PAD=`xsetwacom list dev | grep -E -o ".*pad"`
+DEVICE_PEN_PAD=`xsetwacom list dev | grep -E -o ".*Pen pad"`
+DEVICE_FINGER_PAD=`xsetwacom list dev | grep -E -o ".*Finger pad"`
 DEVICE_TOUCH=`xsetwacom list dev | grep -E -o ".*touch"` 
 
 
@@ -43,18 +44,18 @@ xsetwacom set "$DEVICE_ERASER" PressureCurve "0 10 90 100"  # Bezier curve, defa
 xsetwacom set "$DEVICE_ERASER" Mode "Absolute"  # or Relative cursor movement
 xsetwacom set "$DEVICE_ERASER" Button 1 "1"
 
-## pad = ID 11 = "$DEVICE_PAD"
-xsetwacom set "$DEVICE_PAD" Button 2 "key shift"
-xsetwacom set "$DEVICE_PAD" Button 3 "key ctrl shift P"
-xsetwacom set "$DEVICE_PAD" Button 8 "key ctrl D"
+## pad = ID 11 = "$DEVICE_PEN_PAD"
+xsetwacom set "$DEVICE_PEN_PAD" Button 2 "key shift"
+xsetwacom set "$DEVICE_PEN_PAD" Button 3 "key ctrl shift P"
+xsetwacom set "$DEVICE_PEN_PAD" Button 8 "key ctrl D"
 
-#xsetwacom set "$DEVICE_PAD" AbsWheelDown "key alt right"
-xsetwacom set "$DEVICE_PAD" Button 1 "key ctrl alt super 1"  # button inside touchring - to script
-#xsetwacom set "$DEVICE_PAD" AbsWheelUp "key alt left"
+#xsetwacom set "$DEVICE_PEN_PAD" AbsWheelDown "key alt right"
+xsetwacom set "$DEVICE_PEN_PAD" Button 1 "key ctrl alt super 1"  # button inside touchring - to script
+#xsetwacom set "$DEVICE_PEN_PAD" AbsWheelUp "key alt left"
 
-xsetwacom set "$DEVICE_PAD" Button 9 "key ctrl shift T"
-xsetwacom set "$DEVICE_PAD" Button 10 "key ctrl T"
-xsetwacom set "$DEVICE_PAD" Button 11 "key ctrl W"
+xsetwacom set "$DEVICE_PEN_PAD" Button 9 "key ctrl shift T"
+xsetwacom set "$DEVICE_PEN_PAD" Button 10 "key ctrl T"
+xsetwacom set "$DEVICE_PEN_PAD" Button 11 "key ctrl W"
 
 xsetwacom set "$DEVICE_TOUCH" ScrollDistance "100"
 

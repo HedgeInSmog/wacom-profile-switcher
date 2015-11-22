@@ -14,7 +14,8 @@
 DEVICE_STYLUS=`xsetwacom list dev | grep -E -o ".*stylus"`
 DEVICE_ERASER=`xsetwacom list dev | grep -E -o ".*eraser"`
 DEVICE_CURSOR=`xsetwacom list dev | grep -E -o ".*cursor"`
-DEVICE_PAD=`xsetwacom list dev | grep -E -o ".*pad"`
+DEVICE_PEN_PAD=`xsetwacom list dev | grep -E -o ".*Pen pad"`
+DEVICE_FINGER_PAD=`xsetwacom list dev | grep -E -o ".*Finger pad"`
 DEVICE_TOUCH=`xsetwacom list dev | grep -E -o ".*touch"` 
 
 #notify user about used profile
@@ -52,18 +53,18 @@ xsetwacom set "$DEVICE_ERASER" Mode "Absolute"  # or Relative cursor movement
 xsetwacom set "$DEVICE_ERASER" Button 1 "1"
 
 ## pad = ID 11 = "$DEVICE_PAD"
-xsetwacom set "$DEVICE_PAD" Button 2 "key f1"
-xsetwacom set "$DEVICE_PAD" Button 3 "key f2"
-xsetwacom set "$DEVICE_PAD" Button 8 "key f9"
+xsetwacom set "$DEVICE_PEN_PAD" Button 2 "key f1"
+xsetwacom set "$DEVICE_PEN_PAD" Button 3 "key f2"
+xsetwacom set "$DEVICE_PEN_PAD" Button 8 "key f9"
 
-xsetwacom set "$DEVICE_PAD" AbsWheelDown 4
-xsetwacom set "$DEVICE_PAD" Button 1 "alt ctrl super 4"
-xsetwacom set "$DEVICE_PAD" AbsWheelUp 5
+xsetwacom set "$DEVICE_PEN_PAD" AbsWheelDown 4
+xsetwacom set "$DEVICE_PEN_PAD" Button 1 "alt ctrl super 4"
+xsetwacom set "$DEVICE_PEN_PAD" AbsWheelUp 5
 
-xsetwacom set "$DEVICE_PAD" Button 9 "key esc" #esc
-xsetwacom set "$DEVICE_PAD" Button 10 "key return" #confirm
-xsetwacom set "$DEVICE_PAD" Button 11 "key ctrl z" #undo
+xsetwacom set "$DEVICE_PEN_PAD" Button 9 "key esc" #esc
+xsetwacom set "$DEVICE_PEN_PAD" Button 10 "key return" #confirm
+xsetwacom set "$DEVICE_PEN_PAD" Button 11 "key ctrl z" #undo
 
-xsetwacom set "$DEVICE_PAD" ScrollDistance "10"
-xsetwacom set "$DEVICE_PAD" TapTime "50"
+xsetwacom set "$DEVICE_PEN_PAD" ScrollDistance "10"
+xsetwacom set "$DEVICE_PEN_PAD" TapTime "50"
 

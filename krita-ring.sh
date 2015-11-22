@@ -36,7 +36,7 @@ echo $MODE > /sys/bus/usb/devices/*/wacom_led/status_led0_select
 #DEVICE="Wacom Intuos4 6x9 pad"
 #DEVICE="Wacom Intuos5 touch M Pen pad"
 #DEVICE="Wacom Intuos Pro S Pen pad"
-DEVICE=`xsetwacom list dev | grep -E -o ".*pad"`
+DEVICE=`xsetwacom list dev | grep -E -o ".*Pen pad"`
 
 # set touch ring function option and notification for the 4 toggled modes
 if [ "$MODE" == 0 ]; then
