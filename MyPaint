@@ -63,13 +63,13 @@ xsetwacom set "$DEVICE_ERASER" Mode "Absolute"  # or Relative cursor movement
 xsetwacom set "$DEVICE_ERASER" Button 1 "1"
 
 ## pad = ID 11 = "$DEVICE_PEN_PAD"
-xsetwacom set "$DEVICE_PEN_PAD" Button 2 "key h" #latest colors
+xsetwacom set "$DEVICE_PEN_PAD" Button 2 "key x" #latest colors
 xsetwacom set "$DEVICE_PEN_PAD" Button 3 "key shift" #size
 xsetwacom set "$DEVICE_PEN_PAD" Button 8 "key ctrl" #color pick
 
-xsetwacom set "$DEVICE_PEN_PAD" AbsWheelDown key K
-xsetwacom set "$DEVICE_PEN_PAD" Button 1 "key ctrl alt super 3"  # button inside touchring - script
-xsetwacom set "$DEVICE_PEN_PAD" AbsWheelUp key L
+xsetwacom set "$DEVICE_PEN_PAD" AbsWheelDown "key ctrl ["	#rotate canvas by default
+xsetwacom set "$DEVICE_PEN_PAD" Button 1 "key ctrl alt super 6"  # button inside touchring - script
+xsetwacom set "$DEVICE_PEN_PAD" AbsWheelUp "key ctrl ]"
 
 xsetwacom set "$DEVICE_PEN_PAD" Button 9 "key e" #eraser mode
 xsetwacom set "$DEVICE_PEN_PAD" Button 10 "key d" #multibrushes
