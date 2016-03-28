@@ -40,21 +40,21 @@ DEVICE=`xsetwacom list dev | grep -E -o ".*Pad pad"`
 
 # set touch ring function option and notification for the 4 toggled modes
 if [ "$MODE" == 0 ]; then
-        xsetwacom set  "$DEVICE" AbsWheelUp key L  # scroll up
-        xsetwacom set  "$DEVICE" AbsWheelDown key K  # scroll down
-        notify-send "Krita" "Mode 1:  Brush Color Darkness"
+        xsetwacom set  "$DEVICE" AbsWheelUp 4  # scroll up
+        xsetwacom set  "$DEVICE" AbsWheelDown 5  # scroll down
+        notify-send -t 1500 "Mode 1:  Scroll up or down."
 elif [ "$MODE" == 1 ]; then
-        xsetwacom set  "$DEVICE" AbsWheelUp key ctrl [  # tilt
-        xsetwacom set  "$DEVICE" AbsWheelDown key ctrl ] #
-        notify-send "Krita" "Mode 2:  Tilt Canvas"
+        xsetwacom set  "$DEVICE" AbsWheelUp "key ]"  # increase brush radius (must be mapped in GIMP)
+        xsetwacom set  "$DEVICE" AbsWheelDown "key [" # decrease brush radius (must be mapped in GIMP)
+        notify-send -t 1500 "Mode 2:  Increase or decrease brush size"
 elif [ "$MODE" == 2 ]; then
-        xsetwacom set  "$DEVICE" AbsWheelUp 5  #
-        xsetwacom set  "$DEVICE" AbsWheelDown 4  #
-        notify-send "Krita" "Mode 3:  Zoom"
+        xsetwacom set  "$DEVICE" AbsWheelUp key shift plus  # zoom in
+        xsetwacom set  "$DEVICE" AbsWheelDown key minus  # zoom out
+        notify-send -t 1500 "Mode 3:  Zoom in or out in Gimp."
 elif [ "$MODE" == 3 ]; then
-        xsetwacom set  "$DEVICE" AbsWheelUp key I  #
-        xsetwacom set  "$DEVICE" AbsWheelDown key O  #
-        notify-send "Krita" "Mode 4:  Opacity"
+        xsetwacom set  "$DEVICE" AbsWheelUp key PgUp  # select previous layer
+        xsetwacom set  "$DEVICE" AbsWheelDown key PgDn  # select next layer
+        notify-send -t 1500 "Mode 4:  Select previous or next layer"
 fi
 
 # toggle button increment counter

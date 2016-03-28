@@ -14,7 +14,7 @@
 DEVICE_STYLUS=`xsetwacom list dev | grep -E -o ".*stylus"`
 DEVICE_ERASER=`xsetwacom list dev | grep -E -o ".*eraser"`
 DEVICE_CURSOR=`xsetwacom list dev | grep -E -o ".*cursor"`
-DEVICE_PEN_PAD=`xsetwacom list dev | grep -E -o ".*Pen pad"`
+DEVICE_PEN_PAD=`xsetwacom list dev | grep -E -o ".*Pad pad"`
 DEVICE_FINGER_PAD=`xsetwacom list dev | grep -E -o ".*Finger pad"`
 DEVICE_TOUCH=`xsetwacom list dev | grep -E -o ".*touch"` 
 
@@ -75,7 +75,11 @@ xsetwacom set "$DEVICE_PEN_PAD" TapTime "50"
 xsetwacom set "$DEVICE_TOUCH" "Area" "0 0 4096 4096"
 xsetwacom set "$DEVICE_TOUCH" "Mode" "Relative"
 xsetwacom set "$DEVICE_TOUCH" "Gesture" "on"
-xsetwacom set "$DEVICE_TOUCH" "ZoomDistance" "90"  #def 180
-xsetwacom set "$DEVICE_TOUCH" "ScrollDistance" "20" #def 80
+xsetwacom set "$DEVICE_TOUCH" "ZoomDistance" "180"  #def 180
+xsetwacom set "$DEVICE_TOUCH" "ScrollDistance" "80" #def 80
 xsetwacom set "$DEVICE_TOUCH" "TapTime" "250"
 #xsetwacom set "$DEVICE_TOUCH" "SpeedLevel" "5"
+
+xinput set-prop "$DEVICE_TOUCH" --type=float "Device Accel Constant Deceleration" 1.250000
+xinput set-prop "$DEVICE_TOUCH" --type=float "Device Accel Adaptive Deceleration" 1.150000
+xinput set-prop "$DEVICE_TOUCH" --type=float "Device Accel Velocity Scaling" 10.000000

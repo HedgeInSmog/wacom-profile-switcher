@@ -14,7 +14,7 @@
 DEVICE_STYLUS=`xsetwacom list dev | grep -E -o ".*stylus"`
 DEVICE_ERASER=`xsetwacom list dev | grep -E -o ".*eraser"`
 DEVICE_CURSOR=`xsetwacom list dev | grep -E -o ".*cursor"`
-DEVICE_PEN_PAD=`xsetwacom list dev | grep -E -o ".*Pen pad"`
+DEVICE_PEN_PAD=`xsetwacom list dev | grep -E -o ".*Pad pad"`
 DEVICE_FINGER_PAD=`xsetwacom list dev | grep -E -o ".*Finger pad"`
 DEVICE_TOUCH=`xsetwacom list dev | grep -E -o ".*touch"` 
 

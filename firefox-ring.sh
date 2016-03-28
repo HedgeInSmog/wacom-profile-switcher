@@ -35,13 +35,13 @@ MODE=`cat /tmp/mode_state`
 #fi
 
 # select touch ring mode status LED for current mode state
-echo $MODE > /sys/bus/usb/devices/*/wacom_led/status_led0_select
+echo $MODE > /sys/bus/hid/devices/*/wacom_led/status_led0_select
 
 # for DEVICE use the pad "device name" from 'xinput list'
 #DEVICE="Wacom Intuos4 6x9 pad"
 #DEVICE="Wacom Intuos5 touch M Pen pad"
 #DEVICE="Wacom Intuos Pro S Pen pad"
-DEVICE=`xsetwacom list dev | grep -E -o ".*Pen pad"`
+DEVICE=`xsetwacom list dev | grep -E -o ".*Pad pad"`
 
 # set touch ring function option and notification for the 4 toggled modes
 if [ "$MODE" == 0 ]; then

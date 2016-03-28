@@ -18,7 +18,7 @@
 DEVICE_STYLUS=`xsetwacom list dev | grep -E -o ".*stylus"`
 DEVICE_ERASER=`xsetwacom list dev | grep -E -o ".*eraser"`
 DEVICE_CURSOR=`xsetwacom list dev | grep -E -o ".*cursor"`
-DEVICE_PEN_PAD=`xsetwacom list dev | grep -E -o ".*Pen pad"`
+DEVICE_PEN_PAD=`xsetwacom list dev | grep -E -o ".*Pad pad"`
 DEVICE_FINGER_PAD=`xsetwacom list dev | grep -E -o ".*Finger pad"`
 DEVICE_TOUCH=`xsetwacom list dev | grep -E -o ".*touch"` 
 
@@ -40,11 +40,13 @@ xsetwacom set "$DEVICE_STYLUS" Threshold "27"  # pressure, default is 27, range 
 #xsetwacom set "$DEVICE_STYLUS" PressureCurve "5 10 90 95"
 #xsetwacom set "$DEVICE_STYLUS" PressureCurve "5 10 65 95"
 xsetwacom set "$DEVICE_STYLUS" PressureCurve "0 0 100 100"  # Bezier curve, default is 0,0,100,100
+
 #xsetwacom set "$DEVICE_STYLUS" PressureCurve "0 15 85 100"
 #xsetwacom set "$DEVICE_STYLUS" PressureCurve "0 100  0 100"  # ridiculously soft
 #xsetwacom set "$DEVICE_STYLUS" PressureCurve "0  50  50 100"  # very soft
 #xsetwacom set "$DEVICE_STYLUS" PressureCurve "50   0 100  50"  # very firm
 #xsetwacom set "$DEVICE_STYLUS" PressureCurve "100 0 100 0"  # unbelievably firm
+
 xsetwacom set "$DEVICE_STYLUS" Touch "off"  # "off"
 
 ## setting to draw by button
