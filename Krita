@@ -51,8 +51,11 @@ xsetwacom set "$DEVICE_STYLUS" Touch "off"  # "off"
 
 ## setting to draw by button
 xsetwacom set "$DEVICE_STYLUS" Button 1 "1"  # draw
-xsetwacom set "$DEVICE_STYLUS" Button 2 "3"  # palette - buttom button
+xsetwacom set "$DEVICE_STYLUS" Button 2 "3"  # palette - bottom button
 xsetwacom set "$DEVICE_STYLUS" Button 3 "2"  # pan - upper button
+#default
+#xsetwacom set "$DEVICE_STYLUS" Button 2 "2"  # palette - upper button
+#xsetwacom set "$DEVICE_STYLUS" Button 3 "3"  # pan - bottom button
 
 ## eraser = ID 9 = "$DEVICE_ERASER "
 #xsetwacom set "$DEVICE_ERASER" Suppress "4"  # data pt.s trimmed, default is 4, 0-20
@@ -80,3 +83,4 @@ xsetwacom set "$DEVICE_PEN_PAD" Button 11 "key ctrl z" #undo
 xsetwacom set "$DEVICE_PEN_PAD" ScrollDistance "10"
 xsetwacom set "$DEVICE_PEN_PAD" TapTime "50"
 
+./krita-ring.sh

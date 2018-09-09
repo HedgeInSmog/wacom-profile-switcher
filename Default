@@ -19,7 +19,7 @@ DEVICE_FINGER_PAD=`xsetwacom list dev | grep -E -o ".*Finger pad"`
 DEVICE_TOUCH=`xsetwacom list dev | grep -E -o ".*touch"` 
 
 #notify user about used profile
-notify-send "Wacom" "Default profile"
+notify-send  --hint int:transient:1 "Wacom" "Default profile"
 
 #screen region where Stylus will work
 #for 2 screens: MapToOutput 3286x1080+0+0

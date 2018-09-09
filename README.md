@@ -15,7 +15,7 @@ Added initial settings for ring switch and permissions files needed to allow led
 
 Install
 -------
-
+0. `sudo apt install wmctrl`
 1. Copy 99-wacom-intuos.rules & wacom-permissions.sh into /etc/udev/rules.d and reload udev rules.
 2. Assign system custom shortcuts:
 	* Alt+Ctrl+Super+1	for firefox-ring.sh
@@ -24,5 +24,5 @@ Install
 	* Alt+Ctrl+Super+4	for inkscape-ring.sh
 	* Alt+Ctrl+Super+5	for blender-ring.sh
 3. Edit wacom-profile-switcher.desktop and copy it to ~/.local/share/applications
-4. Run it from unity dash.
+4. Run it from Gnome Shell.
 5. 'GIMP' can be symlinked to 'GNU Image' file.

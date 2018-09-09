@@ -78,3 +78,4 @@ xsetwacom set "$DEVICE_PEN_PAD" Button 11 "key ctrl z" #undo
 xsetwacom set "$DEVICE_PEN_PAD" ScrollDistance "10"
 xsetwacom set "$DEVICE_PEN_PAD" TapTime "50"
 
+./mypaint-ring.sh
