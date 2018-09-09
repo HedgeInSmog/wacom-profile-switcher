@@ -58,7 +58,7 @@ xsetwacom set "$DEVICE_PEN_PAD" Button 3 "key f2"
 xsetwacom set "$DEVICE_PEN_PAD" Button 8 "key f9"
 
 xsetwacom set "$DEVICE_PEN_PAD" AbsWheelDown 4
-xsetwacom set "$DEVICE_PEN_PAD" Button 1 "alt ctrl super 4"
+xsetwacom set "$DEVICE_PEN_PAD" Button 1 "key ctrl alt super 4"
 xsetwacom set "$DEVICE_PEN_PAD" AbsWheelUp 5
 
 xsetwacom set "$DEVICE_PEN_PAD" Button 9 "key esc" #esc
@@ -68,3 +68,4 @@ xsetwacom set "$DEVICE_PEN_PAD" Button 11 "key ctrl z" #undo
 xsetwacom set "$DEVICE_PEN_PAD" ScrollDistance "10"
 xsetwacom set "$DEVICE_PEN_PAD" TapTime "50"
 
+./inkscape-ring.sh

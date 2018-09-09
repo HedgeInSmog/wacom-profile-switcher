@@ -21,48 +21,27 @@
 ## Otherwise comment (#) out the notify-send lines.  If libnotify-bin
 ## installed see 'man notify-send' for details.
 
-# check if mode_state file exists, if not create it and set to 0
-if [ ! -f /tmp/mode_state ]; then
-        echo 0 > /tmp/mode_state
-fi
-
-# read mode state value from temporary file
-MODE=`cat /tmp/mode_state`
-
-# select touch ring mode status LED for current mode state
-echo $MODE > /sys/bus/hid/devices/*/wacom_led/status_led0_select
-
 # for DEVICE use the pad "device name" from 'xinput list'
-#DEVICE="Wacom Intuos4 6x9 pad"
-#DEVICE="Wacom Intuos5 touch M Pen pad"
 #DEVICE="Wacom Intuos Pro S Pen pad"
 DEVICE=`xsetwacom list dev | grep -E -o ".*Pad pad"`
 
+MODE=`cat /sys/bus/hid/devices/*/wacom_led/status_led0_select`
+
 # set touch ring function option and notification for the 4 toggled modes
 if [ "$MODE" == 0 ]; then
-        xsetwacom set  "$DEVICE" AbsWheelUp L  # dark (map in mypaint)
-        xsetwacom set  "$DEVICE" AbsWheelDown K  # light (map in mypaint)
-        notify-send -t 1500 "Mode 1: Brush darkness"
+    xsetwacom set  "$DEVICE" AbsWheelUp key L  # dark (map in mypaint)
+    xsetwacom set  "$DEVICE" AbsWheelDown key K  # light (map in mypaint)
+    notify-send --hint int:transient:1 "MyPaint" "Mode 1: Brush darkness"
 elif [ "$MODE" == 1 ]; then
-        xsetwacom set  "$DEVICE" AbsWheelUp "key ctrl ]"
-        xsetwacom set  "$DEVICE" AbsWheelDown "key ctrl ["
-        notify-send -t 1500 "Mode 2:  Tilt canvas"
+    xsetwacom set  "$DEVICE" AbsWheelUp "key ctrl ]"
+    xsetwacom set  "$DEVICE" AbsWheelDown "key ctrl ["
+    notify-send --hint int:transient:1 "MyPaint" "Mode 2:  Tilt canvas"
 elif [ "$MODE" == 2 ]; then
-        xsetwacom set  "$DEVICE" AbsWheelUp 4
-        xsetwacom set  "$DEVICE" AbsWheelDown 5
-        notify-send -t 1500 "Mode 3:  Zoom in or out"
+    xsetwacom set  "$DEVICE" AbsWheelUp 4
+    xsetwacom set  "$DEVICE" AbsWheelDown 5
+    notify-send --hint int:transient:1 "MyPaint" "Mode 3:  Zoom in or out"
 elif [ "$MODE" == 3 ]; then
-        xsetwacom set  "$DEVICE" AbsWheelUp key A
-        xsetwacom set  "$DEVICE" AbsWheelDown key S
-        notify-send -t 1500 "Mode 4: Opacity"
-fi
-
-# toggle button increment counter
-MODE=$((MODE += 1))
-
-# set next mode state
-if (( "$MODE" > 3 )); then  # roll over to 0, only 4 mode states available
-        echo 0 > /tmp/mode_state
-else
-        echo $MODE > /tmp/mode_state
+    xsetwacom set  "$DEVICE" AbsWheelUp key A
+    xsetwacom set  "$DEVICE" AbsWheelDown key S
+    notify-send --hint int:transient:1 "MyPaint" "Mode 4: Opacity"
 fi
