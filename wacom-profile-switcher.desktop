@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Exec=wacom-profile-switcher.sh
+Name=Wacom Profile Switcher
+GenericName=Wacom Profile Switcher
+Comment=Wacom Profile Switcher
+Encoding=UTF-8
+Type=Application
+Categories=Application;Graphic;Wacom;

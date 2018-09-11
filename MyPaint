@@ -24,7 +24,7 @@ DEVICE_TOUCH=`xsetwacom list dev | grep -E -o ".*touch"`
 
 
 #notify user about used profile
-notify-send "Wacom" "Using Krita profile"
+notify-send "Wacom" "Using MyPaint profile"
 
 #screen region where Stylus will work
 #for 2 screens: MapToOutput 3286x1080+0+0
@@ -40,22 +40,17 @@ xsetwacom set "$DEVICE_STYLUS" Threshold "27"  # pressure, default is 27, range 
 #xsetwacom set "$DEVICE_STYLUS" PressureCurve "5 10 90 95"
 #xsetwacom set "$DEVICE_STYLUS" PressureCurve "5 10 65 95"
 xsetwacom set "$DEVICE_STYLUS" PressureCurve "0 0 100 100"  # Bezier curve, default is 0,0,100,100
-
 #xsetwacom set "$DEVICE_STYLUS" PressureCurve "0 15 85 100"
 #xsetwacom set "$DEVICE_STYLUS" PressureCurve "0 100  0 100"  # ridiculously soft
 #xsetwacom set "$DEVICE_STYLUS" PressureCurve "0  50  50 100"  # very soft
 #xsetwacom set "$DEVICE_STYLUS" PressureCurve "50   0 100  50"  # very firm
 #xsetwacom set "$DEVICE_STYLUS" PressureCurve "100 0 100 0"  # unbelievably firm
-
 xsetwacom set "$DEVICE_STYLUS" Touch "off"  # "off"
 
 ## setting to draw by button
 xsetwacom set "$DEVICE_STYLUS" Button 1 "1"  # draw
-xsetwacom set "$DEVICE_STYLUS" Button 2 "3"  # palette - bottom button
+xsetwacom set "$DEVICE_STYLUS" Button 2 "3"  # palette - buttom button
 xsetwacom set "$DEVICE_STYLUS" Button 3 "2"  # pan - upper button
-#default
-#xsetwacom set "$DEVICE_STYLUS" Button 2 "2"  # palette - upper button
-#xsetwacom set "$DEVICE_STYLUS" Button 3 "3"  # pan - bottom button
 
 ## eraser = ID 9 = "$DEVICE_ERASER "
 #xsetwacom set "$DEVICE_ERASER" Suppress "4"  # data pt.s trimmed, default is 4, 0-20
@@ -68,13 +63,13 @@ xsetwacom set "$DEVICE_ERASER" Mode "Absolute"  # or Relative cursor movement
 xsetwacom set "$DEVICE_ERASER" Button 1 "1"
 
 ## pad = ID 11 = "$DEVICE_PEN_PAD"
-xsetwacom set "$DEVICE_PEN_PAD" Button 2 "key h" #latest colors
+xsetwacom set "$DEVICE_PEN_PAD" Button 2 "key x" #latest colors
 xsetwacom set "$DEVICE_PEN_PAD" Button 3 "key shift" #size
 xsetwacom set "$DEVICE_PEN_PAD" Button 8 "key ctrl" #color pick
 
-xsetwacom set "$DEVICE_PEN_PAD" AbsWheelDown key K
-xsetwacom set "$DEVICE_PEN_PAD" Button 1 "key ctrl alt super 3"  # button inside touchring - script
-xsetwacom set "$DEVICE_PEN_PAD" AbsWheelUp key L
+xsetwacom set "$DEVICE_PEN_PAD" AbsWheelDown "key ctrl ["	#rotate canvas by default
+xsetwacom set "$DEVICE_PEN_PAD" Button 1 "key ctrl alt super 6"  # button inside touchring - script
+xsetwacom set "$DEVICE_PEN_PAD" AbsWheelUp "key ctrl ]"
 
 xsetwacom set "$DEVICE_PEN_PAD" Button 9 "key e" #eraser mode
 xsetwacom set "$DEVICE_PEN_PAD" Button 10 "key d" #multibrushes
@@ -83,4 +78,4 @@ xsetwacom set "$DEVICE_PEN_PAD" Button 11 "key ctrl z" #undo
 xsetwacom set "$DEVICE_PEN_PAD" ScrollDistance "10"
 xsetwacom set "$DEVICE_PEN_PAD" TapTime "50"
 
-./krita-ring.sh
+./mypaint-ring.sh
